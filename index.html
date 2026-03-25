@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtinhos da Shopee - Melhores Achados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-shopee: #ee4d2d; /* Laranja oficial Shopee */
+            --bg-body: #f8f9fa;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            color: var(--primary-shopee);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* Card do Produto */
+        .product-card {
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 16px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: var(--primary-shopee);
+        }
+
+        .product-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 15px;
+            background-color: #f0f0f0;
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .btn-shopee {
+            background-color: var(--primary-shopee);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Produtinhos da Shopee 🧡</h1>
+        <p>Minhas recomendações e achadinhos favoritos!</p>
+    </header>
+
+    <div class="container">
+        
+        <a href="https://s.shopee.com.br/3qIeobxnRU" class="product-card" target="_blank">
+            <img src="https://via.placeholder.com/80" alt="Pote Hermético">
+            <div class="product-info">
+                <h3>Potes Herméticos Premium (Kit)</h3>
+            </div>
+            <div class="btn-shopee">VER NA LOJA</div>
+        </a>
+<a href="https://s.shopee.com.br/6VJPzY8yLE" class="product-card" target="_blank">
+    <img src="FOTO_DO_PRODUTO_2" alt="Outro Produto">
+    <div class="product-info">
+        <h3>Kit Pote de Vidro Hermético Retangular</h3>
+    </div>
+    <div class="btn-shopee">VER NA LOJA</div>
+</a>
+        </div>
+
+    <footer>
+        &copy; 2026 Produtinhos da Shopee
+    </footer>
+
+</body>
+</html>
