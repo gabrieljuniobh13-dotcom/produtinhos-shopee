@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achadinhos Premium 🧡</title>
-    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         :root {
             --primary: #ff4d2d;
@@ -12,6 +11,7 @@
             --dark: #1a1a1a;
             --glass: rgba(255, 255, 255, 0.9);
             --bg: #f0f2f5;
+            --insta-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,14 +37,14 @@
         }
 
         .site-logo {
-            width: 120px; /* Ajustado para melhor proporção */
+            width: 120px;
             height: auto;
-            margin-bottom: 15px;
-            border-radius: 50%; /* Opcional: se sua logo for redonda */
+            margin-bottom: 10px;
+            border-radius: 15px;
         }
 
-        header h1 { font-size: 28px; font-weight: 800; text-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        header p { opacity: 0.9; font-size: 14px; margin-top: 5px; font-weight: 500; }
+        header h1 { font-size: 26px; font-weight: 800; margin-bottom: 5px; }
+        header p { opacity: 0.9; font-size: 14px; }
 
         .container { width: 100%; max-width: 480px; margin: 0 auto; padding: 0 15px; }
 
@@ -60,31 +60,21 @@
             color: inherit;
             border: 1px solid rgba(255,255,255,0.5);
             box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 20px 40px rgba(255, 77, 45, 0.15);
-            border-color: var(--primary);
-        }
+        .product-card:hover { transform: translateY(-5px); border-color: var(--primary); }
 
         .product-card img {
-            width: 90px;
-            height: 90px;
-            border-radius: 18px;
+            width: 85px;
+            height: 85px;
+            border-radius: 15px;
             object-fit: cover;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .product-info { flex: 1; padding: 0 15px; display: flex; flex-direction: column; gap: 8px; }
+        .product-info { flex: 1; padding-left: 15px; display: flex; flex-direction: column; gap: 8px; }
         
-        .product-info h3 { 
-            font-size: 14px; 
-            font-weight: 700; 
-            line-height: 1.3;
-            color: var(--dark);
-        }
+        .product-info h3 { font-size: 14px; font-weight: 700; line-height: 1.2; }
 
         .btn-shopee {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -94,77 +84,49 @@
             font-size: 11px;
             font-weight: 800;
             text-align: center;
-            text-transform: uppercase;
-            animation: pulse 2s infinite;
-            align-self: flex-start; /* Mantém o botão alinhado à esquerda */
+            align-self: flex-start;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 77, 45, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 77, 45, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 77, 45, 0); }
-        }
-
-        .wpp-btn {
+        .insta-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #25d366;
+            background: var(--insta-gradient);
             width: 60px;
             height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            text-decoration: none;
-            font-size: 30px;
+            box-shadow: 0 10px 25px rgba(220, 39, 67, 0.3);
             z-index: 999;
             transition: 0.3s;
         }
 
-        .wpp-btn:hover { transform: rotate(15deg) scale(1.1); }
+        .insta-btn:hover { transform: scale(1.1) rotate(10deg); }
 
-        footer { text-align: center; color: #aaa; font-size: 12px; margin-top: 40px; padding-bottom: 20px; }
-
+        footer { text-align: center; color: #aaa; font-size: 12px; padding: 40px 20px; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="img/logo.jpg" alt="Logo Achadinhos" class="site-logo">
+        <img src="img/logo.jpg" alt="Logo" class="site-logo">
         <h1>Achadinhos Premium</h1>
         <p>Curadoria de Elite • Ofertas Reais</p>
     </header>
 
     <div class="container">
-        
         <a href="https://s.shopee.com.br/3qIeobxnRU" class="product-card" target="_blank">
-            <img src="img/kit de potes hermeticos.jpg" alt="Pote Hermético">
+            <img src="img/kit de potes hermeticos.jpg" alt="Pote">
             <div class="product-info">
                 <h3>Potes Herméticos Premium (Kit Completo)</h3>
                 <div class="btn-shopee">RESGATAR OFERTA</div>
             </div>
         </a>
 
-        <a href="https://s.shopee.com.br/6VJPzY8yLE" class="product-card" target="_blank">
-            <img src="img/kit 10 potes hermeticos.jpg" alt="Kit 10 potes">
-            <div class="product-info">
-                <h3>Kit 10 Potes de Vidro Retangular</h3>
-                <div class="btn-shopee">RESGATAR OFERTA</div>
-            </div>
-        </a>
-
-        <a href="https://s.shopee.com.br/3B2tBjU14z" class="product-card" target="_blank">
-            <img src="img/parafusadeira.jpg" alt="Parafusadeira">
-            <div class="product-info">
-                <h3>Parafusadeira 26V Sem Fio + Maleta</h3>
-                <div class="btn-shopee">RESGATAR OFERTA</div>
-            </div>
-        </a>
-
         <a href="https://s.shopee.com.br/3B2t8f1F3D" class="product-card" target="_blank">
-            <img src="img/relogio.jpg" alt="smartwatch T800">
+            <img src="img/relogio.jpg" alt="Smartwatch">
             <div class="product-info">
                 <h3>Smartwatch T800 Ultra - Série 8 Pro</h3>
                 <div class="btn-shopee">VER NA LOJA</div>
@@ -172,29 +134,22 @@
         </a>
 
         <a href="https://s.shopee.com.br/AACjkmxMTv" class="product-card" target="_blank">
-            <img src="img/potes de vidro fume.jpg" alt="potes vidro fume">
+            <img src="img/potes de vidro fume.jpg" alt="Potes">
             <div class="product-info">
-                <h3>Conjunto Potes Vidro Fumê & Bambu (3 un)</h3>
+                <h3>Conjunto Potes Vidro Fumê & Bambu</h3>
                 <div class="btn-shopee">VER NA LOJA</div>
             </div>
         </a>
-
-        <a href="https://s.shopee.com.br/1VulST7UOK" class="product-card" target="_blank">
-            <img src="img/spray air fryer.jpg" alt="spray limpa air fryer">
-            <div class="product-info">
-                <h3>Spray Limpa Air Fryer - Desengordurante 250ml</h3>
-                <div class="btn-shopee">VER NA LOJA</div>
-            </div>
-        </a>
-
     </div>
 
-    <a href="https://wa.me/5531999999999" class="wpp-btn" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35">
+    <a href="https://www.instagram.com/shope_eprodutos26/" class="insta-btn" target="_blank">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
     </a>
 
     <footer>
-        &copy; 2026 Achadinhos VIP • Links Afiliados Shopee
+        &copy; 2026 Achadinhos VIP
     </footer>
 
 </body>
