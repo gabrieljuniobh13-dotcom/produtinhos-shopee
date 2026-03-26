@@ -3,109 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtinhos da Shopee - Melhores Achados</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Produtinhos da Shopee 🧡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-shopee: #ee4d2d; /* Laranja oficial Shopee */
-            --bg-body: #f8f9fa;
-            --text-dark: #333;
+            --shopee-orange: #ee4d2d;
+            --shopee-bg: #f5f5f5;
+            --text-main: #222;
             --white: #ffffff;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-dark);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--shopee-bg);
+            color: var(--text-main);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px;
+            padding: 20px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            color: var(--primary-shopee);
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #666;
-            font-size: 16px;
-        }
-
-        .container {
+            margin: 20px 0 30px 0;
             width: 100%;
             max-width: 450px;
         }
 
-        /* Card do Produto */
+        header h1 { 
+            color: var(--shopee-orange); 
+            font-size: 26px; 
+            font-weight: 700;
+        }
+
+        header p { 
+            color: #666; 
+            font-size: 14px; 
+            margin-top: 5px; 
+        }
+
+        .container { 
+            width: 100%; 
+            max-width: 450px; 
+        }
+
+        /* Card Estilo Shopee Premium */
         .product-card {
             background: var(--white);
             display: flex;
             align-items: center;
-            padding: 12px;
-            margin-bottom: 16px;
-            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 12px;
             text-decoration: none;
-            color: var(--text-dark);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border: 1px solid #eee;
+            color: inherit;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.2s ease-in-out;
+            border: 1px solid transparent;
         }
 
+        /* Efeito ao passar o mouse ou tocar */
         .product-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-            border-color: var(--primary-shopee);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--shopee-orange);
         }
 
         .product-card img {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
+            width: 90px;
+            height: 90px;
+            border-radius: 8px;
             object-fit: cover;
             margin-right: 15px;
-            background-color: #f0f0f0;
+            border: 1px solid #f0f0f0;
         }
 
-        .product-info {
-            flex-grow: 1;
+        .product-info { 
+            flex-grow: 1; 
         }
 
-        .product-info h3 {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            line-height: 1.2;
+        .product-info h3 { 
+            font-size: 14px; 
+            font-weight: 600; 
+            line-height: 1.3;
+            margin-bottom: 8px;
+            /* Limita o texto em 2 linhas */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .btn-shopee {
-            background-color: var(--primary-shopee);
+            display: inline-block;
+            background-color: var(--shopee-orange);
             color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
             text-align: center;
-            min-width: 90px;
         }
 
-        footer {
-            margin-top: 50px;
-            font-size: 12px;
-            color: #999;
+        /* Botão flutuante WhatsApp */
+        .wpp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-decoration: none;
+            z-index: 100;
+            transition: 0.3s;
+        }
+
+        .wpp-float:hover { transform: scale(1.1); }
+
+        footer { 
+            margin-top: 40px; 
+            font-size: 11px; 
+            color: #999; 
+            text-align: center; 
+            padding-bottom: 20px;
         }
     </style>
 </head>
@@ -113,7 +142,7 @@
 
     <header>
         <h1>Produtinhos da Shopee 🧡</h1>
-        <p>Minhas recomendações e achadinhos favoritos!</p>
+        <p>Achadinhos selecionados para você!</p>
     </header>
 
     <div class="container">
@@ -121,36 +150,43 @@
         <a href="https://s.shopee.com.br/3qIeobxnRU" class="product-card" target="_blank">
             <img src="img/kit de potes hermeticos.jpg" alt="Pote Hermético">
             <div class="product-info">
-                <h3>Potes Herméticos Premium (Kit)</h3>
+                <h3>Potes Herméticos Premium (Kit Completo)</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
             </div>
-            <div class="btn-shopee">VER NA LOJA</div>
         </a>
-<a href="https://s.shopee.com.br/6VJPzY8yLE" class="product-card" target="_blank">
-    <img src="img/kit 10 potes hermeticos.jpg" alt="kit 10 potes hermeticos">
-    <div class="product-info">
-        <h3>Kit Pote de Vidro Hermético Retangular</h3>
-    </div>
-    <div class="btn-shopee">VER NA LOJA</div>
-</a>
-<a href="https://s.shopee.com.br/3B2tBjU14z" class="product-card" target="_blank">
-    <img src="img/parafusadeira.jpg" alt="parafusadeira">
-    <div class="product-info">
-        <h3>Parafusadeira Furadeira 26V Baterias Sem Fio Impacto Com Maleta Completo Broca Bits Maleta (110V/220V)</h3>
-    </div>
-    <div class="btn-shopee">VER NA LOJA</div>
-</a>
-<a href="https://s.shopee.com.br/4VYLlxNMIL" class="product-card" target="_blank">
-    <img src="img/banheiro.jpg" alt="kit banheiro">
-    <div class="product-info">
-        <h3>Kit Banheiro Completo Lixeira C/ Tampa Detalhes Em Bambu Luxo</h3>
-    </div>
-    <div class="btn-shopee">VER NA LOJA</div>
-</a>
 
-        </div>
+        <a href="https://s.shopee.com.br/6VJPzY8yLE" class="product-card" target="_blank">
+            <img src="img/kit 10 potes hermeticos.jpg" alt="Kit 10 potes">
+            <div class="product-info">
+                <h3>Kit Pote de Vidro Hermético Retangular (10 Unidades)</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/3B2tBjU14z" class="product-card" target="_blank">
+            <img src="img/parafusadeira.jpg" alt="Parafusadeira">
+            <div class="product-info">
+                <h3>Parafusadeira Furadeira 26V Sem Fio + Maleta</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/4VYLlxNMIL" class="product-card" target="_blank">
+            <img src="img/banheiro.jpg" alt="Kit Banheiro">
+            <div class="product-info">
+                <h3>Kit Banheiro Completo Luxo - Detalhes Bambu</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+    </div>
+
+    <a href="https://wa.me/5531999999999" class="wpp-float" target="_blank">
+        <span style="font-size: 24px;">💬</span>
+    </a>
 
     <footer>
-        &copy; 2026 Produtinhos da Shopee
+        &copy; 2026 Produtinhos da Shopee | Gabriel Junio
     </footer>
 
 </body>
