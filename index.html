@@ -39,8 +39,8 @@
         .site-logo {
             width: 120px;
             height: auto;
-            margin-bottom: 10px;
-            border-radius: 15px;
+            margin-bottom: 15px;
+            border-radius: 20px;
         }
 
         header h1 { font-size: 26px; font-weight: 800; margin-bottom: 5px; }
@@ -60,10 +60,14 @@
             color: inherit;
             border: 1px solid rgba(255,255,255,0.5);
             box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            transition: 0.3s ease;
         }
 
-        .product-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .product-card:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--primary); 
+            box-shadow: 0 10px 25px rgba(255, 77, 45, 0.1);
+        }
 
         .product-card img {
             width: 85px;
@@ -74,7 +78,7 @@
 
         .product-info { flex: 1; padding-left: 15px; display: flex; flex-direction: column; gap: 8px; }
         
-        .product-info h3 { font-size: 14px; font-weight: 700; line-height: 1.2; }
+        .product-info h3 { font-size: 14px; font-weight: 700; line-height: 1.2; color: var(--dark); }
 
         .btn-shopee {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
@@ -85,6 +89,7 @@
             font-weight: 800;
             text-align: center;
             align-self: flex-start;
+            text-transform: uppercase;
         }
 
         .insta-btn {
@@ -105,7 +110,7 @@
 
         .insta-btn:hover { transform: scale(1.1) rotate(10deg); }
 
-        footer { text-align: center; color: #aaa; font-size: 12px; padding: 40px 20px; }
+        footer { text-align: center; color: #aaa; font-size: 11px; padding: 40px 20px; }
     </style>
 </head>
 <body>
@@ -117,10 +122,35 @@
     </header>
 
     <div class="container">
+        
         <a href="https://s.shopee.com.br/3qIeobxnRU" class="product-card" target="_blank">
             <img src="img/kit de potes hermeticos.jpg" alt="Pote">
             <div class="product-info">
                 <h3>Potes Herméticos Premium (Kit Completo)</h3>
+                <div class="btn-shopee">RESGATAR OFERTA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/6VJPzY8yLE" class="product-card" target="_blank">
+            <img src="img/kit 10 potes hermeticos.jpg" alt="Kit 10 potes">
+            <div class="product-info">
+                <h3>Kit 10 Potes de Vidro Retangular</h3>
+                <div class="btn-shopee">RESGATAR OFERTA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/3B2tBjU14z" class="product-card" target="_blank">
+            <img src="img/parafusadeira.jpg" alt="Parafusadeira">
+            <div class="product-info">
+                <h3>Parafusadeira 26V Sem Fio + Maleta</h3>
+                <div class="btn-shopee">RESGATAR OFERTA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/4VYLlxNMIL" class="product-card" target="_blank">
+            <img src="img/banheiro.jpg" alt="Kit Banheiro">
+            <div class="product-info">
+                <h3>Kit Banheiro Luxo - Bambu Collection</h3>
                 <div class="btn-shopee">RESGATAR OFERTA</div>
             </div>
         </a>
@@ -136,10 +166,19 @@
         <a href="https://s.shopee.com.br/AACjkmxMTv" class="product-card" target="_blank">
             <img src="img/potes de vidro fume.jpg" alt="Potes">
             <div class="product-info">
-                <h3>Conjunto Potes Vidro Fumê & Bambu</h3>
+                <h3>Conjunto Potes Vidro Fumê & Bambu (3 un)</h3>
                 <div class="btn-shopee">VER NA LOJA</div>
             </div>
         </a>
+
+        <a href="https://s.shopee.com.br/1VulST7UOK" class="product-card" target="_blank">
+            <img src="img/spray air fryer.jpg" alt="Spray">
+            <div class="product-info">
+                <h3>Spray Limpa Air Fryer - Desengordurante</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
     </div>
 
     <a href="https://www.instagram.com/shope_eprodutos26/" class="insta-btn" target="_blank">
@@ -149,7 +188,7 @@
     </a>
 
     <footer>
-        &copy; 2026 Achadinhos VIP
+        &copy; 2026 Achadinhos VIP • Boas Compras!
     </footer>
 
 </body>
