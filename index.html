@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Achadinhos Premium 🧡</title>
-    
-    <link rel="icon" type="image/x-icon" href="favicon.png"> <style>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
         :root {
             --primary: #ff4d2d;
             --secondary: #ff8e2d;
@@ -28,24 +28,66 @@
 
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 40px 20px;
+            padding: 30px 20px;
             text-align: center;
             color: white;
             border-bottom-left-radius: 30px;
             border-bottom-right-radius: 30px;
             box-shadow: 0 10px 30px rgba(255, 77, 45, 0.3);
-            margin-bottom: 30px;
         }
 
-        .site-logo {
-            width: 120px;
-            height: auto;
-            margin-bottom: 15px;
-            border-radius: 20px;
+        .site-logo { width: 80px; height: auto; margin-bottom: 10px; border-radius: 15px; }
+        header h1 { font-size: 24px; margin-bottom: 5px; }
+
+        /* Barra de Pesquisa */
+        .search-box {
+            width: 90%;
+            max-width: 400px;
+            margin: -25px auto 10px;
+            position: relative;
+            z-index: 10;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            outline: none;
+            font-size: 15px;
         }
 
-        header h1 { font-size: 26px; font-weight: 800; margin-bottom: 5px; }
-        header p { opacity: 0.9; font-size: 14px; }
+        /* Contador de Produtos */
+        .product-counter {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #888;
+            margin: 5px 0 15px;
+        }
+        #count-num { color: var(--primary); }
+
+        /* Categorias */
+        .categories-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 10px 15px 20px;
+            scrollbar-width: none;
+        }
+        .categories-container::-webkit-scrollbar { display: none; }
+        .category-item {
+            display: inline-block;
+            background: white;
+            padding: 10px 18px;
+            margin-right: 8px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .category-item.active { background: var(--primary); color: white; }
 
         .container { width: 100%; max-width: 480px; margin: 0 auto; padding: 0 15px; }
 
@@ -54,43 +96,33 @@
             backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 24px;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 20px;
             text-decoration: none;
             color: inherit;
             border: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-            transition: 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+            animation: fadeIn 0.4s ease;
         }
 
-        .product-card:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--primary); 
-            box-shadow: 0 10px 25px rgba(255, 77, 45, 0.1);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .product-card img {
-            width: 85px;
-            height: 85px;
-            border-radius: 15px;
-            object-fit: cover;
-        }
-
-        .product-info { flex: 1; padding-left: 15px; display: flex; flex-direction: column; gap: 8px; }
-        
-        .product-info h3 { font-size: 14px; font-weight: 700; line-height: 1.2; color: var(--dark); }
+        .product-card img { width: 75px; height: 75px; border-radius: 12px; object-fit: cover; }
+        .product-info { flex: 1; padding-left: 12px; }
+        .product-info h3 { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
 
         .btn-shopee {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             color: white;
-            padding: 8px 12px;
-            border-radius: 10px;
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 11px;
             font-weight: 800;
-            text-align: center;
-            align-self: flex-start;
-            text-transform: uppercase;
+            display: inline-block;
         }
 
         .insta-btn {
@@ -106,10 +138,7 @@
             justify-content: center;
             box-shadow: 0 10px 25px rgba(220, 39, 67, 0.3);
             z-index: 999;
-            transition: 0.3s;
         }
-
-        .insta-btn:hover { transform: scale(1.1) rotate(10deg); }
 
         footer { text-align: center; color: #aaa; font-size: 11px; padding: 40px 20px; }
     </style>
@@ -119,101 +148,107 @@
     <header>
         <img src="img/logo.jpg" alt="Logo" class="site-logo">
         <h1>Achadinhos Premium</h1>
-        <p>Curadoria de Elite • Ofertas Reais</p>
+        <p>Ofertas Reais Selecionadas</p>
     </header>
 
-    <div class="container">
-        <a href="https://s.shopee.com.br/3qIeobxnRU" class="product-card" target="_blank">
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Buscar achadinhos..." onkeyup="filterAll()">
+    </div>
+
+    <div class="categories-container" id="categoryButtons">
+        <div class="category-item active" onclick="setCategory('tudo', this)">🔥 Tudo</div>
+        <div class="category-item" onclick="setCategory('cozinha', this)">🍳 Cozinha</div>
+        <div class="category-item" onclick="setCategory('tech', this)">⌚ Tech</div>
+        <div class="category-item" onclick="setCategory('ferramentas', this)">🛠️ Ferramentas</div>
+        <div class="category-item" onclick="setCategory('casa', this)">🏠 Casa</div>
+    </div>
+
+    <div class="product-counter">
+        Exibindo <span id="count-num">0</span> achadinhos encontrados
+    </div>
+
+    <div class="container" id="productGrid">
+        <a href="https://s.shopee.com.br/3qIeobxnRU" class="product-card" data-category="cozinha" target="_blank">
             <img src="img/kit de potes hermeticos.jpg" alt="Pote">
             <div class="product-info">
                 <h3>Potes Herméticos Premium (Kit Completo)</h3>
-                <div class="btn-shopee">VER NA LOJA</div>
+                <div class="btn-shopee">RESGATAR OFERTA</div>
             </div>
         </a>
 
-        <a href="https://s.shopee.com.br/6VJPzY8yLE" class="product-card" target="_blank">
-            <img src="img/kit 10 potes hermeticos.jpg" alt="Kit 10 potes">
-            <div class="product-info">
-                <h3>Kit 10 Potes de Vidro Retangular</h3>
-                <div class="btn-shopee">VER NA LOJA</div>
-            </div>
-        </a>
-
-        <a href="https://s.shopee.com.br/3B2tBjU14z" class="product-card" target="_blank">
-            <img src="img/parafusadeira.jpg" alt="Parafusadeira">
-            <div class="product-info">
-                <h3>Parafusadeira 26V Sem Fio + Maleta</h3>
-                <div class="btn-shopee">VER NA LOJA</div>
-            </div>
-        </a>
-
-        <a href="https://s.shopee.com.br/4VYLlxNMIL" class="product-card" target="_blank">
-            <img src="img/banheiro.jpg" alt="Kit Banheiro">
-            <div class="product-info">
-                <h3>Kit Banheiro Luxo - Bambu Collection</h3>
-                <div class="btn-shopee">VER NA LOJA</div>
-            </div>
-        </a>
-
-        <a href="https://s.shopee.com.br/3B2t8f1F3D" class="product-card" target="_blank">
-            <img src="img/relogio.jpg" alt="Smartwatch">
+        <a href="https://s.shopee.com.br/3B2t8f1F3D" class="product-card" data-category="tech" target="_blank">
+            <img src="img/relogio.jpg" alt="Relógio">
             <div class="product-info">
                 <h3>Smartwatch T800 Ultra - Série 8 Pro</h3>
                 <div class="btn-shopee">VER NA LOJA</div>
             </div>
         </a>
 
-        <a href="https://s.shopee.com.br/AACjkmxMTv" class="product-card" target="_blank">
-            <img src="img/potes de vidro fume.jpg" alt="Potes">
+        <a href="https://s.shopee.com.br/3B2tBjU14z" class="product-card" data-category="ferramentas" target="_blank">
+            <img src="img/parafusadeira.jpg" alt="Parafusadeira">
             <div class="product-info">
-                <h3>Conjunto Potes Vidro Fumê & Bambu (3 un)</h3>
-                <div class="btn-shopee">VER NA LOJA</div>
+                <h3>Parafusadeira 26V Sem Fio + Maleta</h3>
+                <div class="btn-shopee">RESGATAR OFERTA</div>
             </div>
         </a>
 
-        <a href="https://s.shopee.com.br/1VulST7UOK" class="product-card" target="_blank">
+        <a href="https://s.shopee.com.br/4VYLlxNMIL" class="product-card" data-category="casa" target="_blank">
+            <img src="img/banheiro.jpg" alt="Banheiro">
+            <div class="product-info">
+                <h3>Kit Banheiro Luxo - Bambu Collection</h3>
+                <div class="btn-shopee">RESGATAR OFERTA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/1VulST7UOK" class="product-card" data-category="cozinha" target="_blank">
             <img src="img/spray air fryer.jpg" alt="Spray">
             <div class="product-info">
                 <h3>Spray Limpa Air Fryer - Desengordurante</h3>
                 <div class="btn-shopee">VER NA LOJA</div>
             </div>
         </a>
-
-        <a href="https://s.shopee.com.br/40c8FBEoxA" class="product-card" target="_blank">
-    <img src="img/pulverizador.jpg" alt="Outro Produto">
-    <div class="product-info">
-        <h3>Kit Automotivo Pulverizador Snow Foam Manual Lavadora Espuma Borrifador 2 Litros </h3>
-    </div>
-    <div class="btn-shopee">VER NA LOJA</div>
-</a>
-
-<a href="https://s.shopee.com.br/8fNxpX0wtD" class="product-card" target="_blank">
-    <img src="img/aspirador.jpg" alt="Outro Produto">
-    <div class="product-info">
-        <h3>Mini Aspirador De Pó 3 em 1 a Vacuo Usb Portátil Recarregavel -SE8010</h3>
-    </div>
-    <div class="btn-shopee">VER NA LOJA</div>
-</a>
-
-<a href="https://s.shopee.com.br/160s20cSN" class="product-card" target="_blank">
-    <img src="img/mini processador.jpg" alt="Outro Produto">
-    <div class="product-info">
-        <h3>Mini Processador Elétrico de Alimentos Portátil</h3>
-    </div>
-    <div class="btn-shopee">VER NA LOJA</div>
-</a>
-
     </div>
 
     <a href="https://www.instagram.com/shope_eprodutos26/" class="insta-btn" target="_blank">
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="white">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-        </svg>
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
 
-    <footer>
-        &copy; 2026 Achadinhos VIP • Boas Compras!
-    </footer>
+    <footer> &copy; 2026 Achadinhos VIP </footer>
 
+    <script>
+        let currentCategory = 'tudo';
+
+        function setCategory(cat, el) {
+            document.querySelectorAll('.category-item').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+            currentCategory = cat;
+            filterAll();
+        }
+
+        function filterAll() {
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+
+            products.forEach(p => {
+                const title = p.querySelector('h3').innerText.toLowerCase();
+                const category = p.getAttribute('data-category');
+                
+                const matchesSearch = title.includes(searchText);
+                const matchesCategory = currentCategory === 'tudo' || category === currentCategory;
+
+                if(matchesSearch && matchesCategory) {
+                    p.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    p.style.display = 'none';
+                }
+            });
+            document.getElementById('count-num').innerText = visibleCount;
+        }
+
+        // Iniciar contador
+        window.onload = filterAll;
+    </script>
 </body>
 </html>
