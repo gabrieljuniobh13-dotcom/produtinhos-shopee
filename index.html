@@ -37,9 +37,7 @@
         }
 
         .site-logo { width: 80px; height: auto; margin-bottom: 10px; border-radius: 15px; }
-        header h1 { font-size: 24px; margin-bottom: 5px; }
 
-        /* Barra de Pesquisa */
         .search-box {
             width: 90%;
             max-width: 400px;
@@ -57,7 +55,6 @@
             font-size: 15px;
         }
 
-        /* Contador de Produtos */
         .product-counter {
             text-align: center;
             font-size: 13px;
@@ -67,7 +64,6 @@
         }
         #count-num { color: var(--primary); }
 
-        /* Categorias */
         .categories-container {
             overflow-x: auto;
             white-space: nowrap;
@@ -155,7 +151,7 @@
         <input type="text" id="searchInput" placeholder="Buscar achadinhos..." onkeyup="filterAll()">
     </div>
 
-    <div class="categories-container" id="categoryButtons">
+    <div class="categories-container">
         <div class="category-item active" onclick="setCategory('tudo', this)">🔥 Tudo</div>
         <div class="category-item" onclick="setCategory('cozinha', this)">🍳 Cozinha</div>
         <div class="category-item" onclick="setCategory('tech', this)">⌚ Tech</div>
@@ -164,10 +160,11 @@
     </div>
 
     <div class="product-counter">
-        Exibindo <span id="count-num">0</span> achadinhos encontrados
+        Exibindo <span id="count-num">0</span> achadinhos
     </div>
 
     <div class="container" id="productGrid">
+        
         <a href="https://s.shopee.com.br/3qIeobxnRU" class="product-card" data-category="cozinha" target="_blank">
             <img src="img/kit de potes hermeticos.jpg" alt="Pote">
             <div class="product-info">
@@ -176,11 +173,11 @@
             </div>
         </a>
 
-        <a href="https://s.shopee.com.br/3B2t8f1F3D" class="product-card" data-category="tech" target="_blank">
-            <img src="img/relogio.jpg" alt="Relógio">
+        <a href="https://s.shopee.com.br/6VJPzY8yLE" class="product-card" data-category="cozinha" target="_blank">
+            <img src="img/kit 10 potes hermeticos.jpg" alt="Kit 10 potes">
             <div class="product-info">
-                <h3>Smartwatch T800 Ultra - Série 8 Pro</h3>
-                <div class="btn-shopee">VER NA LOJA</div>
+                <h3>Kit 10 Potes de Vidro Retangular</h3>
+                <div class="btn-shopee">RESGATAR OFERTA</div>
             </div>
         </a>
 
@@ -200,6 +197,22 @@
             </div>
         </a>
 
+        <a href="https://s.shopee.com.br/3B2t8f1F3D" class="product-card" data-category="tech" target="_blank">
+            <img src="img/relogio.jpg" alt="Relógio">
+            <div class="product-info">
+                <h3>Smartwatch T800 Ultra - Série 8 Pro</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/AACjkmxMTv" class="product-card" data-category="cozinha" target="_blank">
+            <img src="img/potes de vidro fume.jpg" alt="Potes Vidro">
+            <div class="product-info">
+                <h3>Conjunto Potes Vidro Fumê & Bambu (3 un)</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
         <a href="https://s.shopee.com.br/1VulST7UOK" class="product-card" data-category="cozinha" target="_blank">
             <img src="img/spray air fryer.jpg" alt="Spray">
             <div class="product-info">
@@ -207,6 +220,7 @@
                 <div class="btn-shopee">VER NA LOJA</div>
             </div>
         </a>
+
     </div>
 
     <a href="https://www.instagram.com/shope_eprodutos26/" class="insta-btn" target="_blank">
@@ -247,7 +261,6 @@
             document.getElementById('count-num').innerText = visibleCount;
         }
 
-        // Iniciar contador
         window.onload = filterAll;
     </script>
 </body>
