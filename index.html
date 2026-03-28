@@ -62,7 +62,7 @@
             color: #888;
             margin: 5px 0 15px;
         }
-        #count-num { color: var(--primary); }
+        #count-num { color: var(--primary); font-size: 16px; }
 
         .categories-container {
             overflow-x: auto;
@@ -155,12 +155,14 @@
         <div class="category-item active" onclick="setCategory('tudo', this)">🔥 Tudo</div>
         <div class="category-item" onclick="setCategory('cozinha', this)">🍳 Cozinha</div>
         <div class="category-item" onclick="setCategory('tech', this)">⌚ Tech</div>
-        <div class="category-item" onclick="setCategory('ferramentas', this)">🛠️ Ferramentas</div>
+        <div class="category-item" onclick="setCategory('iluminacao', this)">💡 Luz</div>
+        <div class="category-item" onclick="setCategory('limpeza', this)">🧹 Limpeza</div>
+        <div class="category-item" onclick="setCategory('automotivo', this)">🚗 Auto</div>
         <div class="category-item" onclick="setCategory('casa', this)">🏠 Casa</div>
     </div>
 
     <div class="product-counter">
-        Exibindo <span id="count-num">0</span> achadinhos
+        Exibindo <span id="count-num">0</span> achadinhos encontrados
     </div>
 
     <div class="container" id="productGrid">
@@ -213,10 +215,42 @@
             </div>
         </a>
 
-        <a href="https://s.shopee.com.br/1VulST7UOK" class="product-card" data-category="cozinha" target="_blank">
+        <a href="https://s.shopee.com.br/1VulST7UOK" class="product-card" data-category="limpeza" target="_blank">
             <img src="img/spray air fryer.jpg" alt="Spray">
             <div class="product-info">
                 <h3>Spray Limpa Air Fryer - Desengordurante</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/160s20cSN" class="product-card" data-category="cozinha" target="_blank">
+            <img src="img/mini processador.jpg" alt="Mini Processador">
+            <div class="product-info">
+                <h3>Mini Processador Elétrico de Alimentos Portátil</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/8fNxpX0wtD" class="product-card" data-category="limpeza" target="_blank">
+            <img src="img/aspirador.jpg" alt="Aspirador">
+            <div class="product-info">
+                <h3>Mini Aspirador De Pó 3 em 1 Portátil Recarregável</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/40c8FBEoxA" class="product-card" data-category="automotivo" target="_blank">
+            <img src="img/pulverizador.jpg" alt="Pulverizador">
+            <div class="product-info">
+                <h3>Pulverizador Snow Foam Manual 2L Kit Automotivo</h3>
+                <div class="btn-shopee">VER NA LOJA</div>
+            </div>
+        </a>
+
+        <a href="https://s.shopee.com.br/4AvZzAxkCw" class="product-card" data-category="iluminacao" target="_blank">
+            <img src="img/luminaria.jpg" alt="Luminária">
+            <div class="product-info">
+                <h3>Luminária de Mesa RGB com Carregador por Indução</h3>
                 <div class="btn-shopee">VER NA LOJA</div>
             </div>
         </a>
